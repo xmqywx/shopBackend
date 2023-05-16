@@ -334,7 +334,7 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="猜你喜欢：">
+            <el-form-item label="发现好物：">
               <el-radio-group v-model="formValidate.is_benefit" >
                 <el-radio :label="1" class="radio">开启</el-radio>
                 <el-radio :label="0">关闭</el-radio>
@@ -342,7 +342,7 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid">
-            <el-form-item label="精品推荐：">
+            <el-form-item label="特色推荐：">
               <el-radio-group v-model="formValidate.is_best" >
                 <el-radio :label="1" class="radio">开启</el-radio>
                 <el-radio :label="0">关闭</el-radio>
