@@ -6,20 +6,20 @@
         <el-tab-pane name="-9">
           <span slot="label"><i class="el-icon-s-order"></i> 全部订单</span>
         </el-tab-pane>
-        <el-tab-pane name="0">
-          <span slot="label"><i class="el-icon-bank-card"></i> 未支付</span>
-        </el-tab-pane>
         <el-tab-pane name="1">
-          <span slot="label"><i class="el-icon-refrigerator"></i> 未发货</span>
+          <span slot="label"><i class="el-icon-bank-card"></i> 待发货</span>
         </el-tab-pane>
-        <el-tab-pane name="2">
-          <span slot="label"><i class="el-icon-truck"></i> 待收货</span>
+        <el-tab-pane name="6">
+          <span slot="label"><i class="el-icon-refrigerator"></i> 已拣货</span>
         </el-tab-pane>
-        <el-tab-pane name="3">
-          <span slot="label"><i class="el-icon-document"></i> 待评价</span>
+        <el-tab-pane name="7">
+          <span slot="label"><i class="el-icon-truck"></i> 已出库</span>
         </el-tab-pane>
-        <el-tab-pane name="4">
-          <span slot="label"><i class="el-icon-circle-check"></i> 交易完成</span>
+        <el-tab-pane name="8">
+          <span slot="label"><i class="el-icon-document"></i> 配送中</span>
+        </el-tab-pane>
+        <el-tab-pane name="9">
+          <span slot="label"><i class="el-icon-circle-check"></i> 已完成</span>
         </el-tab-pane>
         <!--<el-tab-pane name="-1">-->
         <!--  <span slot="label"><i class="el-icon-back"></i> 退款中</span>-->
@@ -166,13 +166,13 @@
             </div> -->
           </template>
         </el-table-column>
-        <el-table-column prop="orderId" width="140" label="订单号">
+        <el-table-column prop="orderId" width="160" label="订单号">
           <template slot-scope="scope">
             <span>{{ scope.row.orderId }}</span>
             <p>{{ scope.row.pinkName }}</p>
           </template>
         </el-table-column>
-        <el-table-column prop="userPhone" label="联系电话" >
+        <el-table-column prop="userPhone" width="110" label="联系电话" >
           <template slot-scope="scope">
             <span>{{ scope.row.userDTO.phone }}</span>
           </template>
@@ -188,17 +188,18 @@
           </template>
         </el-table-column>
 
-        <el-table-column prop="payPrice" label="实际支付" />
+        <el-table-column prop="payPrice" width="100" label="实际支付" />
         <!-- <el-table-column prop="payIntegral" label="消费积分" /> -->
         <!-- <el-table-column prop="payTypeName" label="支付状态" /> -->
-        <el-table-column prop="statusName" label="订单状态">
+        <el-table-column prop="statusName" width="100" label="订单状态">
           <template slot-scope="scope">
             <span v-html="scope.row.statusName"></span>
           </template>
         </el-table-column>
         <el-table-column prop="addTime" width="180" label="创建时间">
           <template slot-scope="scope">
-            <span>{{ formatTime(scope.row.createTime) }}</span>
+<!--            <span>{{ formatTime(scope.row.createTime) }}</span>-->
+            <span>{{ formatTimeTwo(scope.row.createTime) }}</span>
           </template>
         </el-table-column>
         <el-table-column v-if="checkPermission(['admin','YXSTOREORDER_ALL','YXSTOREORDER_EDIT','YXSTOREORDER_DELETE'])" label="操作" width="200" align="center" fixed="right">
@@ -324,7 +325,7 @@
   import editOrder from './edit'
   import eRemark from './remark'
   import ePrint from './print'
-  import { formatTime } from '@/utils/index'
+  import { formatTime,formatTimeTwo } from '@/utils/index'
   import { gett } from '@/api/visits'
   import { getInfo } from '@/api/yxStoreProduct'
   export default {
@@ -394,6 +395,7 @@
         this.$router.push({ path: '/order/detail/'+id })
       },
       formatTime,
+      formatTimeTwo,
       checkPermission,
       handleOrder(tab, event) {
         this.status = tab.name

@@ -5,17 +5,20 @@
       <el-tab-pane name="-9">
         <span slot="label"><i class="el-icon-s-order"></i> 全部订单</span>
       </el-tab-pane>
-      <el-tab-pane name="0">
-        <span slot="label"><i class="el-icon-bank-card"></i> 未支付</span>
-      </el-tab-pane>
       <el-tab-pane name="1">
-        <span slot="label"><i class="el-icon-refrigerator"></i> 待核销</span>
+        <span slot="label"><i class="el-icon-bank-card"></i> 待发货</span>
       </el-tab-pane>
-      <el-tab-pane name="3">
-        <span slot="label"><i class="el-icon-document"></i> 待评价</span>
+      <el-tab-pane name="6">
+        <span slot="label"><i class="el-icon-refrigerator"></i> 已拣货</span>
       </el-tab-pane>
-      <el-tab-pane name="4">
-        <span slot="label"><i class="el-icon-circle-check"></i> 交易完成</span>
+      <el-tab-pane name="7">
+        <span slot="label"><i class="el-icon-document"></i> 已出库</span>
+      </el-tab-pane>
+      <el-tab-pane name="8">
+        <span slot="label"><i class="el-icon-circle-check"></i> 配送中</span>
+      </el-tab-pane>
+      <el-tab-pane name="9">
+        <span slot="label"><i class="el-icon-circle-check"></i> 已完成</span>
       </el-tab-pane>
       <!--<el-tab-pane name="-1">-->
       <!--  <span slot="label"><i class="el-icon-back"></i> 退款中</span>-->
@@ -202,10 +205,14 @@ export default {
       ],
       statusOptions: [
         { value: '0', label: '未支付' },
-        { value: '1', label: '未发货' },
+        { value: '1', label: '待发货' },
         { value: '2', label: '待收货' },
         { value: '3', label: '待评价' },
         { value: '4', label: '交易完成' },
+        { value: '6', label: '已拣货' },
+        { value: '7', label: '已出库' },
+        { value: '8', label: '配送中' },
+        { value: '9', label: '已完成' },
         // { value: '5', label: '待核销' },
         { value: '-1', label: '退款中' },
         { value: '-2', label: '已退款' },
