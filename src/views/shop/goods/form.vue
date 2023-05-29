@@ -5,8 +5,8 @@
         <el-row :gutter="24">
           <!-- 商品信息-->
           <el-col v-bind="grid4">
-            <el-form-item label="商品编号：" prop="store_name">
-              <el-input readonly v-model="formValidate.store_name" placeholder="请输入商品名称"  />
+            <el-form-item label="商品编号：" prop="ertId">
+              <el-input readonly v-model="formValidate.ertId" placeholder="请输入商品编号"  />
             </el-form-item>
           </el-col>
           <el-col v-bind="grid4">
@@ -17,26 +17,81 @@
 
           <el-col v-bind="grid4">
             <el-form-item label="商品规格：" prop="store_name">
-              <el-input readonly v-model="formValidate.store_name" placeholder="请输入商品名称"  />
+              <el-input readonly v-model="formValidate.erpGoodsspec" placeholder="请输入商品规格"  />
             </el-form-item>
           </el-col>
           <el-col v-bind="grid4">
-            <el-form-item label="商品厂家：" prop="store_name">
-              <el-input readonly v-model="formValidate.store_name" placeholder="请输入商品名称"  />
+            <el-form-item label="生产厂家：" prop="store_name">
+              <el-input readonly v-model="formValidate.erpManufacturer" placeholder="请输入生产厂家"  />
             </el-form-item>
           </el-col>
 
           <el-col v-bind="grid4">
+            <el-form-item label="单位：" prop="erpUnit">
+              <el-input v-model="formValidate.erpUnit" placeholder="请输入单位"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="商品类别：" prop="">
+              <el-input v-model="formValidate.erpGcategory" placeholder="请输入商品类别"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="质量类别：" prop="">
+              <el-input v-model="formValidate.erpQcategory" placeholder="请输入质量类别"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="品牌名称：" prop="">
+              <el-input v-model="formValidate.brandName" placeholder="请输入品牌名称"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="商品关键字：" prop="">
+              <el-input v-model="formValidate.keyword" placeholder="请输入商品关键字"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="件包装：" prop="">
+              <el-input v-model="formValidate.erpQty" placeholder="请输入件包装"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="中包装：" prop="">
+              <el-input v-model="formValidate.erpMidpack" placeholder="请输入中包装"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="批准文号：" prop="">
+              <el-input v-model="formValidate.erpApprovalno" placeholder="请输入批准文号"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="A价格：" prop="">
+              <el-input v-model="formValidate.aprice" placeholder="请输入A价格"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="B价格：" prop="">
+              <el-input v-model="formValidate.bprice" placeholder="请输入B价格"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="C价格：" prop="">
+              <el-input v-model="formValidate.cprice" placeholder="请输入C价格"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="D价格：" prop="">
+              <el-input v-model="formValidate.dprice" placeholder="请输入D价格"  />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
             <el-form-item label="商品分类：" prop="cate_id">
               <el-select v-model="formValidate.cate_id" filterable :filter-method="dataFilter" clearable>
                 <el-option v-for="item in optionsMetaShow" :disabled="item.disabled === 0"
-                :value="item.value" :key="item.id" :label="item.label" ></el-option>
+                           :value="item.value" :key="item.id" :label="item.label" ></el-option>
               </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col v-bind="grid2">
-            <el-form-item label="商品关键字：" prop="">
-              <el-input v-model="formValidate.keyword" placeholder="请输入商品关键字"  />
             </el-form-item>
           </el-col>
           <!-- <el-col v-bind="grid2">
@@ -44,7 +99,7 @@
               <el-input v-model="formValidate.unit_name"  placeholder="请输入单位" />
             </el-form-item>
           </el-col> -->
-          <el-col v-bind="grid3">
+          <el-col v-bind="grid1">
             <el-form-item label="商品简介：" prop="">
               <el-input v-model="formValidate.store_info" type="textarea" :rows="3" placeholder="请输入商品简介" />
             </el-form-item>
@@ -227,21 +282,13 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col v-bind="grid">
-            <el-form-item label="虚拟销量：">
-              <el-input-number  :min="0" v-model="formValidate.ficti" placeholder="请输入虚拟销量"  />
-            </el-form-item>
-          </el-col>
+
           <el-col v-bind="grid" v-show="false">
             <el-form-item label="购买返回积分：">
               <el-input-number  v-model="formValidate.give_integral" :min="0" placeholder="请输入积分" />
             </el-form-item>
           </el-col>
-          <el-col v-bind="grid">
-            <el-form-item label="排序：">
-              <el-input-number :min="0"  v-model="formValidate.sort" placeholder="请输入排序" />
-            </el-form-item>
-          </el-col>
+
           <el-col :span="24" v-show="false">
             <el-form-item label="佣金设置：">
               <el-radio-group v-model="formValidate.is_sub">
@@ -317,23 +364,9 @@
               </el-table>
             </el-form-item>
           </el-col>
-          <el-col v-bind="grid">
-            <el-form-item label="商品状态：">
-              <el-radio-group v-model="formValidate.is_show" >
-                <el-radio :label="1" class="radio">上架</el-radio>
-                <el-radio :label="0">下架</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-          <el-col v-bind="grid">
-            <el-form-item label="热卖单品：">
-              <el-radio-group v-model="formValidate.is_hot" >
-                <el-radio :label="1" class="radio">开启</el-radio>
-                <el-radio :label="0">关闭</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-          <el-col v-bind="grid">
+
+
+          <el-col v-bind="grid4">
             <el-form-item label="发现好物：">
               <el-radio-group v-model="formValidate.is_benefit" >
                 <el-radio :label="1" class="radio">开启</el-radio>
@@ -341,7 +374,7 @@
               </el-radio-group>
             </el-form-item>
           </el-col>
-          <el-col v-bind="grid">
+          <el-col v-bind="grid4">
             <el-form-item label="特色推荐：">
               <el-radio-group v-model="formValidate.is_best" >
                 <el-radio :label="1" class="radio">开启</el-radio>
@@ -349,12 +382,38 @@
               </el-radio-group>
             </el-form-item>
           </el-col>
-          <el-col v-bind="grid">
+          <el-col v-bind="grid4">
+            <el-form-item label="热卖单品：">
+              <el-radio-group v-model="formValidate.is_hot" >
+                <el-radio :label="1" class="radio">开启</el-radio>
+                <el-radio :label="0">关闭</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
             <el-form-item label="首发新品：">
               <el-radio-group v-model="formValidate.is_new" >
                 <el-radio :label="1" class="radio">开启</el-radio>
                 <el-radio :label="0">关闭</el-radio>
               </el-radio-group>
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="商品状态：">
+              <el-radio-group v-model="formValidate.is_show" >
+                <el-radio :label="1" class="radio">上架</el-radio>
+                <el-radio :label="0">下架</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4" >
+            <el-form-item label="排序：">
+              <el-input-number :min="0"  v-model="formValidate.sort" placeholder="请输入排序" />
+            </el-form-item>
+          </el-col>
+          <el-col v-bind="grid4">
+            <el-form-item label="虚拟销量：">
+              <el-input-number  :min="0" v-model="formValidate.ficti" placeholder="请输入虚拟销量"  />
             </el-form-item>
           </el-col>
         </el-row>
@@ -475,7 +534,22 @@ export default {
           }
         ],
         header: [],
-        selectRule: ''
+        selectRule: '',
+        erpPlancate: '',
+        erpGcategory:'',
+        erpQcategory:'',
+        brandName:'',
+        erpQty:1,
+        erpMidpack:1,
+        ertId:'',
+        erpApprovalno:'',
+        aprice:0,
+        bprice:0,
+        cprice:0,
+        dprice:0,
+        erpUnit:'',
+        erpGoodsspec:'',
+        erpManufacturer:''
       },
       ruleList: [],
       templateList: [],
@@ -539,6 +613,9 @@ export default {
         ],
         temp_id: [
           { required: true, message: '请选择运费模板', trigger: 'change', type: 'number' }
+        ],
+        erpUnit:[
+          { required: true, message: '请输入单位', trigger: 'blur' }
         ]
       },
       attrs: []

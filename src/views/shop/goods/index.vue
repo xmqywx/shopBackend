@@ -2,15 +2,7 @@
   <div class="app-container">
     <!--工具栏-->
     <div class="head-container">
-      <!-- 搜索 -->
-      <el-input
-        v-model="query.value"
-        clearable
-        placeholder="输入搜索内容"
-        style="width: 200px;"
-        class="filter-item"
-        @keyup.enter.native="toQuery"
-      />
+
       <el-select
         v-model="query.type"
         clearable
@@ -25,6 +17,17 @@
           :value="item.key"
         />
       </el-select>
+
+      <!-- 搜索 -->
+      <el-input
+        v-model="query.value"
+        clearable
+        placeholder="输入搜索内容"
+        style="width: 200px;"
+        class="filter-item"
+        @keyup.enter.native="toQuery"
+      />
+
       <el-select
         v-model="cateId"
         clearable
@@ -110,17 +113,23 @@
       <el-table-column width="80" prop="ertId" label="商品编号" />
 
       <el-table-column prop="storeName" label="商品名称" />
-      <el-table-column prop="erpGoodsspec" label="商品规格/单位">
+      <el-table-column prop="erpGoodsspec" label="商品规格">
         <template slot-scope="scope">
-          {{ scope.row.erpGoodsspec + " / " + scope.row.erpUnit }}
+          {{ scope.row.erpGoodsspec }}
         </template>
       </el-table-column>
-      <el-table-column prop="erpManufacturer" label="商品厂家" />
+      <el-table-column prop="erpManufacturer" label="生产厂家" />
       <!-- <el-table-column prop="erpUnit" label="商品单位" /> -->
+
+
+      <el-table-column width="80" prop="erpUnit" label="单位" />
+      <el-table-column width="80" prop="erpMidpack" label="中包装" />
       <el-table-column width="80" prop="erpQty" label="件包装" />
-      <!-- <el-table-column prop="erpMidpack" label="中包装" /> -->
-      <!-- <el-table-column prop="erpFormula" label="剂型" /> -->
+       <el-table-column width="80" prop="erpFormula" label="剂型" />
       <el-table-column width="80" prop="erpPlancate" label="规划分类" />
+      <el-table-column width="80" prop="erpGcategory" label="商品类别" />
+      <el-table-column width="80" prop="erpQcategory" label="质量类别" />
+      <el-table-column width="80" prop="brandName" label="商品品牌" />
 
       <el-table-column
         width="80"
