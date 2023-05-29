@@ -104,10 +104,13 @@ export default {
         form:{
           name: ''
         },
-        username:'',
-        startTime:'',
-        endTime:''
-      } }
+
+      },
+      username:'',
+      startTime:'',
+      endTime:''
+      }
+
   },
   created() {
     this.$nextTick(() => {
