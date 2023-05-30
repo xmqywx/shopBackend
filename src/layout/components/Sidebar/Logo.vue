@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: '国建医药-后台管理',
+      title: '国健医药-后台管理',
       logo: Logo
     }
   }
