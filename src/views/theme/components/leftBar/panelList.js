@@ -51,7 +51,7 @@ export const panelList = [
                 uniapp_url: '/pages/shop/news/NewsList/index',
                 url: '/news_list',
                 info:
-                  '正通在线商城',
+                  '国建医药在线商城',
                 wxapp_url: '/pages/shop/news/NewsList/main'
               }
             ]

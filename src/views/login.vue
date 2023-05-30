@@ -3,12 +3,12 @@
     <div style="display:flex;justify-content:space-between;align-items: center;">
       <!-- <div style="padding: 0 60px 0 0">
         <h3 style="color: #ffffff;font-size: 24px;padding: 0;margin-bottom: 10px">
-          正通电商系统
+          国建医药电商系统
         </h3>
       </div> -->
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-position="left" label-width="0px" class="login-form">
       <h3 class="title">
-        正通后台管理系统
+        国建医药后台管理系统
       </h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">

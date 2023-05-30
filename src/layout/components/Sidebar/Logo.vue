@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Logo from '@/assets/images/6.png'
+import Logo from '@/assets/images/7.png'
 export default {
   name: 'SidebarLogo',
   props: {
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: '正通-后台管理',
+      title: '国建医药-后台管理',
       logo: Logo
     }
   }
